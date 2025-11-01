@@ -47,7 +47,7 @@ export default function Speakers() {
               truly remarkable sound. Experience the difference with ZX9, the
               best-in-class speaker for home entertainment.
             </p>
-            <Link to="/product">
+            <Link to="/product/speaker-item-1">
               <button className="bg-[#D87D4A] hover:bg-[#FBAF85] transition text-white px-8 py-4 uppercase text-sm tracking-wider font-semibold">
                 See Product
               </button>
@@ -69,7 +69,7 @@ export default function Speakers() {
               speaker uses high-end audio components to provide an exceptional
               experience for your home setup.
             </p>
-            <Link to="/product">
+            <Link to="/product/speaker-item-2">
               <button className="bg-[#D87D4A] hover:bg-[#FBAF85] transition text-white px-8 py-4 uppercase text-sm tracking-wider font-semibold">
                 See Product
               </button>

@@ -23,6 +23,32 @@ import secondSpeaker from "/images/speakers/speaker-2.svg";
 //EARPHONES
 import firstEarphone from "/images/earphones/earph-1.svg";
 
+//----------PRODUCT DETAILS ASSETS----------
+
+//HEADPHONES ITEM 1
+import headphone_item_1a from "/images/product-detail/headphone-1/item-1.svg";
+import headphone_item_2a from "/images/product-detail/headphone-1/item-2.svg";
+import headphone_item_3a from "/images/product-detail/headphone-1/item-3.svg";
+
+//HEADPHONES ITEM 2
+import headphone_item_1b from "/images/product-detail/headphone-2/item-1.svg";
+import headphone_item_2b from "/images/product-detail/headphone-2/item-2.svg";
+import headphone_item_3b from "/images/product-detail/headphone-2/item-3.svg";
+
+//HEADPHONES ITEM 3
+import headphone_item_1c from "/images/product-detail/headphone-3/item-1.svg";
+import headphone_item_2c from "/images/product-detail/headphone-3/item-2.svg";
+import headphone_item_3c from "/images/product-detail/headphone-3/item-3.svg";
+
+//SPEAKERS ITEM 1
+import speaker_item_1a from "/images/product-detail/speaker-1/item-1.svg";
+import speaker_item_2a from "/images/product-detail/speaker-1/item-2.svg";
+import speaker_item_3a from "/images/product-detail/speaker-1/item-3.svg";
+
+//SPEAKERS ITEM 2
+import speaker_item_1b from "/images/product-detail/speaker-1/item-1.svg";
+import speaker_item_2b from "/images/product-detail/speaker-1/item-2.svg";
+import speaker_item_3b from "/images/product-detail/speaker-1/item-3.svg";
 
 export const assets = {
   // HOME PAGE ASSETS
@@ -49,4 +75,29 @@ export const assets = {
   //EARPHONES
   firstEarphone,
 
+  // PRODUCT DETAILS ASSETS
+  //HEADPHONES ITEM 1
+  headphone_item_1a,
+  headphone_item_2a,
+  headphone_item_3a,
+
+  //HEADPHONES ITEM 2
+  headphone_item_1b,
+  headphone_item_2b,
+  headphone_item_3b,
+
+  //HEADPHONES ITEM 3
+  headphone_item_1c,
+  headphone_item_2c,
+  headphone_item_3c,
+
+  //SPEAKERS ITEM 1
+  speaker_item_1a,
+  speaker_item_2a,
+  speaker_item_3a,
+
+  //SPEAKERS ITEM 2
+  speaker_item_1b,
+  speaker_item_2b,
+  speaker_item_3b,
 };

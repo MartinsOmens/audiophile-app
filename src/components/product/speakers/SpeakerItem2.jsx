@@ -5,7 +5,7 @@ import { Footer } from "../../layouts/Footer";
 import Customer from "../../layouts/Customer";
 import Product from "../../layouts/Product";
 
-export default function HeadphoneItem1() {
+export default function SpeakerItem2() {
   return (
     <>
       <Navbar />
@@ -16,8 +16,8 @@ export default function HeadphoneItem1() {
           {/* === GO BACK === */}
           <div className="w-full max-w-[1440px] mx-auto px-6 pt-20 mt-15">
             <Link
-              to="/headphones"
-              className="text-gray-500 hover:text-[#D87D4A] text-sm font-medium transition-colors duration-300"
+              to="/speakers"
+              className="text-gray-500 hover:text-gray-700 text-lg font-medium transition-colors duration-300"
             >
               Go Back
             </Link>
@@ -28,8 +28,8 @@ export default function HeadphoneItem1() {
             {/* === IMAGE === */}
             <div className="bg-[#F1F1F1] rounded-xl flex justify-center items-center p-6 sm:p-8 md:p-10">
               <img
-                src={assets.firstHeadphone}
-                alt="XX99 Mark II Headphones"
+                src={assets.secondSpeaker}
+                alt="ZX7 SPEAKER"
                 className="w-[80%] sm:w-[70%] md:w-[60%] h-auto object-contain"
               />
             </div>
@@ -40,14 +40,16 @@ export default function HeadphoneItem1() {
                 New Product
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-[1.43px] mb-6 leading-[1.1]">
-                XX99 Mark II <br /> Headphones
+                ZX7
+                <br /> SPEAKER
               </h1>
               <p className="text-gray-600 text-sm sm:text-base leading-[25px] mb-6 max-w-lg">
-                The pinnacle of pristine audio. These headphones redefine your
-                premium listening experience by reproducing the balanced depth
-                and precision of studio-quality sound.
+                Stream high quality sound wirelessly with minimal to no loss.
+                The ZX7 speaker uses high-end audiophile components that
+                represents the top of the line powered speakers for home or
+                studio use.
               </p>
-              <p className="text-lg sm:text-xl font-bold mb-6">$2,999</p>
+              <p className="text-lg sm:text-xl font-bold mb-6">$3,500</p>
               <div className="flex flex-row items-center gap-2 w-full max-w-md ">
                 {/* Quantity Button */}
                 <button className="flex-1 bg-[#FAFAFA] hover:bg-[#F1F1F1] text-[#000000] py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold transition rounded">
@@ -75,15 +77,21 @@ export default function HeadphoneItem1() {
                   Features
                 </h2>
                 <p className="text-gray-600 text-sm sm:text-base leading-[25px] max-w-2xl">
-                  Experience natural, lifelike audio and exceptional build
-                  quality made for the passionate music lover. The XX99 Mark II
-                  offers precise sound reproduction, unparalleled comfort, and
-                  cutting-edge wireless connectivity for the modern listener.
+                  Reap the advantages of a flat diaphragm tweeter cone. This
+                  provides a fast response rate and excellent high frequencies
+                  that lower tiered bookshelf speakers cannot provide. The
+                  woofers are made from aluminum that produces a unique and
+                  clear sound. XLR inputs allow you to connect to a mixer for
+                  more advanced usage.
                   <br />
                   <br />
-                  Whether you’re in the studio or relaxing at home, these
-                  headphones deliver consistent performance across genres,
-                  ensuring every note is heard exactly as intended.
+                  The ZX7 speaker is the perfect blend of stylish design and
+                  high performance. It houses an encased MDF wooden enclosure
+                  which minimises acoustic resonance. Dual connectivity allows
+                  pairing through bluetooth or traditional optical and RCA
+                  input. Switch input sources and control volume at your finger
+                  tips with the included wireless remote. This versatile speaker
+                  is equipped to deliver an authentic listening experience.
                 </p>
               </div>
 
@@ -95,15 +103,15 @@ export default function HeadphoneItem1() {
                 <ul className="space-y-3">
                   <li className="text-gray-600 text-sm sm:text-base">
                     <span className="text-[#D87D4A] font-semibold mr-3">
-                      1x
+                      2x
                     </span>
-                    Headphone Unit
+                    Speaker Unit
                   </li>
                   <li className="text-gray-600 text-sm sm:text-base">
                     <span className="text-[#D87D4A] font-semibold mr-3">
                       2x
                     </span>
-                    Replacement Earcups
+                    Speaker Cloth Panel
                   </li>
                   <li className="text-gray-600 text-sm sm:text-base">
                     <span className="text-[#D87D4A] font-semibold mr-3">
@@ -115,7 +123,13 @@ export default function HeadphoneItem1() {
                     <span className="text-[#D87D4A] font-semibold mr-3">
                       1x
                     </span>
-                    3.5mm Audio Cable
+                    3.5mm 7.5m Audio Cable
+                  </li>
+                  <li className="text-gray-600 text-sm sm:text-base">
+                    <span className="text-[#D87D4A] font-semibold mr-3">
+                      1x
+                    </span>
+                    10m Optical Cable
                   </li>
                 </ul>
               </div>
@@ -127,16 +141,16 @@ export default function HeadphoneItem1() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {/* LEFT COLUMN (2 stacked images) */}
               <div className="grid grid-rows-2 gap-6 md:gap-8">
-                <div className="rounded-xl overflow-hidden h-[200px] sm:h-[240px] md:h-[280px] lg:h-[320px]">
+                <div className="rounded-xl overflow-hidden h-[200px] sm:h-60 md:h-[280px] lg:h-80">
                   <img
-                    src={assets.headphone_item_1a}
+                    src={assets.speaker_item_1a}
                     alt="Gallery 1"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="rounded-xl overflow-hidden h-[200px] sm:h-[240px] md:h-[280px] lg:h-[320px]">
+                <div className="rounded-xl overflow-hidden h-[200px] sm:h-60 md:h-[280px] lg:h-80">
                   <img
-                    src={assets.headphone_item_2a}
+                    src={assets.speaker_item_2a}
                     alt="Gallery 2"
                     className="w-full h-full object-cover"
                   />
@@ -146,7 +160,7 @@ export default function HeadphoneItem1() {
               {/* RIGHT COLUMN (tall image) */}
               <div className="rounded-xl overflow-hidden h-[450px] sm:h-[480px] md:h-[560px] lg:h-[670px]">
                 <img
-                  src={assets.headphone_item_3a}
+                  src={assets.speaker_item_3a}
                   alt="Gallery 3"
                   className="w-full h-full object-cover"
                 />
@@ -154,7 +168,6 @@ export default function HeadphoneItem1() {
             </div>
           </section>
 
-        
           {/* === YOU MAY ALSO LIKE === */}
           <section className="max-w-[1440px] mx-auto w-full text-center mt-28">
             <h2 className="text-2xl sm:text-3xl font-bold uppercase tracking-wide mb-12">
@@ -165,16 +178,16 @@ export default function HeadphoneItem1() {
               {[
                 // map over an array for DRY structure
                 {
+                  img: assets.secondSpeaker,
+                  name: "ZX7 SPEAKER",
+                },
+                {
                   img: assets.secondHeadphone,
                   name: "XX99 Mark I",
                 },
                 {
                   img: assets.thirdHeadphone,
                   name: "XX59",
-                },
-                {
-                  img: assets.firstSpeaker,
-                  name: "ZX9 Speaker",
                 },
               ].map((product, idx) => (
                 <div
@@ -188,7 +201,10 @@ export default function HeadphoneItem1() {
                       className="w-[60%] h-auto object-contain"
                     />
                   </div>
-                  <h3 className="text-xl font-bold uppercase mb-6">
+                  <h3
+                    className="text-xl font-bold uppercase mb-6"
+                    style={{ letterSpacing: "1.71px" }}
+                  >
                     {product.name}
                   </h3>
                   <Link
