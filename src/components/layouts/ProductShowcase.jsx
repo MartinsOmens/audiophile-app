@@ -10,9 +10,9 @@ export default function ProductShowcase() {
       <div className="relative bg-[#D87D4A] rounded-2xl overflow-hidden flex items-end mb-10">
         {/* Decorative Circles */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none -translate-y-6 sm:-translate-y-8 md:-translate-y-10">
-          <div className="w-[260px] h-[260px] sm:w-[350px] sm:h-[350px] md:w-[480px] md:h-[480px] lg:w-[600px] lg:h-[600px] rounded-full border-[2px] border-white/20"></div>
-          <div className="absolute w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] rounded-full border-[2px] border-white/30"></div>
-          <div className="absolute w-[140px] h-[140px] sm:w-[220px] sm:h-[220px] md:w-[300px] md:h-[300px] lg:w-[380px] lg:h-[380px] rounded-full border-[2px] border-white/40"></div>
+          <div className="w-[260px] h-[260px] sm:w-[350px] sm:h-[350px] md:w-[480px] md:h-[480px] lg:w-[600px] lg:h-[600px] rounded-full border-2 border-white/20"></div>
+          <div className="absolue w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] rounded-full border-2 border-white/30"></div>
+          <div className="absolute w-[140px] h-[140px] sm:w-[220px] sm:h-[220px] md:w-[300px] md:h-[300px] lg:w-[380px] lg:h-[380px] rounded-full border-2 border-white/40"></div>
         </div>
 
         {/* Content */}
@@ -37,7 +37,7 @@ export default function ProductShowcase() {
               Upgrade to premium speakers that are phenomenally built to deliver
               truly remarkable sound.
             </p>
-            <Link to="/product">
+            <Link to="/speakers">
               <button className="mt-6 sm:mt-8 bg-[#000000] hover:bg-[#4C4C4C] transition text-white px-6 sm:px-8 py-3 sm:py-4 uppercase text-sm tracking-wider">
                 See Product
               </button>
@@ -61,7 +61,7 @@ export default function ProductShowcase() {
             <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold uppercase tracking-wider">
               ZX7 Speaker
             </h3>
-            <Link to="/product">
+            <Link to="/speakers">
               <button
                 className="mt-6 sm:mt-8 border border-black hover:bg-black hover:text-white 
                            transition px-6 sm:px-8 py-3 sm:py-4 uppercase text-sm tracking-wider"
@@ -91,7 +91,7 @@ export default function ProductShowcase() {
             YX1 Earphones
           </h3>
 
-          <Link to="/product">
+          <Link to="/earphones">
             <button className="mt-8 border border-black hover:bg-black hover:text-white transition px-8 py-4 uppercase text-sm tracking-wider">
               See Product
             </button>

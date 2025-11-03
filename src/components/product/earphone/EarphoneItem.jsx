@@ -6,16 +6,17 @@ import Customer from "../../layouts/Customer";
 import Product from "../../layouts/Product";
 import { useCart } from "../../../context/CartContext";
 
-export default function SpeakerItem1() {
-   const { addToCart } = useCart();
-  
-    // Product data
-    const product = {
-      id: 4,
-      name: "ZX9 SPEAKER",
-      price: 4500,
-      image: assets.firstSpeaker,
-    };
+export default function EarphoneItem() {
+  const { addToCart } = useCart();
+
+  // Product data
+  const product = {
+    id: 6,
+    name: "YX1 WIRELESS EARPHONES",
+    price: 4500,
+    image: assets.homeEarphone,
+  };
+
   return (
     <>
       <Navbar />
@@ -26,7 +27,7 @@ export default function SpeakerItem1() {
           {/* === GO BACK === */}
           <div className="w-full max-w-[1440px] mx-auto px-6 pt-20 mt-15">
             <Link
-              to="/speakers"
+              to="/earphones"
               className="text-gray-500 hover:text-gray-700 text-lg font-medium transition-colors duration-300"
             >
               Go Back
@@ -50,14 +51,14 @@ export default function SpeakerItem1() {
                 New Product
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-[1.43px] mb-6 leading-[1.1]">
-                ZX9
-                <br /> SPEAKER
+                YX1 WIRELESS
+                <br /> EARPHONES
               </h1>
               <p className="text-gray-600 text-sm sm:text-base leading-[25px] mb-6 max-w-lg">
-                Upgrade your sound system with the all new ZX9 active speaker.
-                It’s a bookshelf speaker system that offers truly wireless
-                connectivity -- creating new possibilities for more pleasing and
-                practical audio setups.
+                Tailor your listening experience with bespoke dynamic drivers
+                from the new YX1 Wireless Earphones. Enjoy incredible
+                high-fidelity sound even in noisy environments with its active
+                noise cancellation feature.
               </p>
               <p className="text-lg sm:text-xl font-bold mb-6">$4,500</p>
               {/* === ADD TO CART BUTTON === */}
@@ -81,21 +82,21 @@ export default function SpeakerItem1() {
                   Features
                 </h2>
                 <p className="text-gray-600 text-sm sm:text-base leading-[25px] max-w-2xl">
-                  Connect via Bluetooth or nearly any wired source. This speaker
-                  features optical, digital coaxial, USB Type-B, stereo RCA, and
-                  stereo XLR inputs, allowing you to have up to five wired
-                  source devices connected for easy switching. Improved
-                  bluetooth technology offers near lossless audio quality at up
-                  to 328ft (100m). videos.
+                  Experience unrivalled stereo sound thanks to innovative
+                  acoustic technology. With improved ergonomics designed for
+                  full day wearing, these revolutionary earphones have been
+                  finely crafted to provide you with the perfect fit, delivering
+                  complete comfort all day long while enjoying exceptional noise
+                  isolation and truly immersive sound.
                   <br />
                   <br />
-                  Discover clear, more natural sounding highs than the
-                  competition with ZX9’s signature planar diaphragm tweeter.
-                  Equally important is its powerful room-shaking bass courtesy
-                  of a 6.5” aluminum alloy bass unit. You’ll be able to enjoy
-                  equal sound quality whether in a large room or small den.
-                  Furthermore, you will experience new sensations from old songs
-                  since it can respond to even the subtle waveforms.
+                  The YX1 Wireless Earphones features customizable controls for
+                  volume, music, calls, and voice assistants built into both
+                  earbuds. The new 7-hour battery life can be extended up to 28
+                  hours with the charging case, giving you uninterrupted play
+                  time. Exquisite craftsmanship with a splash resistant design
+                  now available in an all new white and grey color scheme as
+                  well as the popular classic black.
                 </p>
               </div>
 
@@ -109,13 +110,13 @@ export default function SpeakerItem1() {
                     <span className="text-[#D87D4A] font-semibold mr-3">
                       2x
                     </span>
-                    Speaker Unit
+                    Earphone Unit
                   </li>
                   <li className="text-gray-600 text-sm sm:text-base">
                     <span className="text-[#D87D4A] font-semibold mr-3">
-                      2x
+                      6x
                     </span>
-                    Speaker Cloth Panel
+                    Multi-size Earplugs
                   </li>
                   <li className="text-gray-600 text-sm sm:text-base">
                     <span className="text-[#D87D4A] font-semibold mr-3">
@@ -127,13 +128,13 @@ export default function SpeakerItem1() {
                     <span className="text-[#D87D4A] font-semibold mr-3">
                       1x
                     </span>
-                    3.5mm 10m Audio Cable
+                    USB-C Charging Cable
                   </li>
                   <li className="text-gray-600 text-sm sm:text-base">
                     <span className="text-[#D87D4A] font-semibold mr-3">
                       1x
                     </span>
-                    10m Optical Cable
+                    Travel Pouch
                   </li>
                 </ul>
               </div>
@@ -147,14 +148,14 @@ export default function SpeakerItem1() {
               <div className="grid grid-rows-2 gap-4 md:gap-6">
                 <div className="rounded-xl overflow-hidden h-[150px] sm:h-40 md:h-60 lg:h-64">
                   <img
-                    src={assets.speaker_item_1a}
+                    src={assets.earphone_item_1}
                     alt="Gallery 1"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="rounded-xl overflow-hidden h-[150px] sm:h-40 md:h-60 lg:h-64">
                   <img
-                    src={assets.speaker_item_2a}
+                    src={assets.earphone_item_2}
                     alt="Gallery 2"
                     className="w-full h-full object-cover"
                   />
@@ -164,7 +165,7 @@ export default function SpeakerItem1() {
               {/* RIGHT COLUMN (tall image) */}
               <div className="rounded-xl overflow-hidden h-[300px] sm:h-[350px] md:h-[400px] lg:h-[540px]">
                 <img
-                  src={assets.speaker_item_3a}
+                  src={assets.earphone_item_3}
                   alt="Gallery 3"
                   className="w-full h-full object-cover"
                 />
@@ -182,16 +183,16 @@ export default function SpeakerItem1() {
               {[
                 // map over an array for DRY structure
                 {
-                  img: assets.secondSpeaker,
-                  name: "ZX7 SPEAKER",
-                },
-                {
                   img: assets.secondHeadphone,
                   name: "XX99 Mark I",
                 },
                 {
                   img: assets.thirdHeadphone,
                   name: "XX59",
+                },
+                {
+                  img: assets.homeBigSpeaker,
+                  name: "ZX9 SPEAKER",
                 },
               ].map((product, idx) => (
                 <div

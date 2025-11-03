@@ -4,8 +4,19 @@ import { Link } from "react-router-dom";
 import { Footer } from "../../layouts/Footer";
 import Customer from "../../layouts/Customer";
 import Product from "../../layouts/Product";
+import { useCart } from "../../../context/CartContext";
 
 export default function HeadphoneItem2() {
+  const { addToCart } = useCart();
+
+  // Product data
+  const product = {
+    id: 2,
+    name: "XX99 Mark I Headphones",
+    price: 1750,
+    image: assets.secondHeadphone,
+  };
+
   return (
     <>
       <Navbar />
@@ -28,8 +39,8 @@ export default function HeadphoneItem2() {
             {/* === IMAGE === */}
             <div className="bg-[#F1F1F1] rounded-xl flex justify-center items-center p-6 sm:p-8 md:p-10">
               <img
-                src={assets.secondHeadphone}
-                alt="XX99 Mark II Headphones"
+                src={product.image}
+                alt={product.name}
                 className="w-[80%] sm:w-[70%] md:w-[60%] h-auto object-contain"
               />
             </div>
@@ -49,18 +60,12 @@ export default function HeadphoneItem2() {
                 the go.
               </p>
               <p className="text-lg sm:text-xl font-bold mb-6">$1,750</p>
-              <div className="flex flex-row items-center gap-2 w-full max-w-md ">
-                {/* Quantity Button */}
-                <button className="flex-1 bg-[#FAFAFA] hover:bg-[#F1F1F1] text-[#000000] py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold transition rounded">
-                  <div className="flex items-center justify-center gap-4">
-                    <span className="cursor-pointer select-none">+</span>
-                    <span>1</span>
-                    <span className="cursor-pointer select-none">-</span>
-                  </div>
-                </button>
-
-                {/* Add to Cart Button */}
-                <button className="flex-1 bg-[#D87D4A] hover:bg-[#FBAF85] text-white py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold transition rounded">
+              {/* === ADD TO CART BUTTON === */}
+              <div className="flex flex-row items-center gap-2 w-full max-w-md">
+                <button
+                  onClick={() => addToCart(product)} // ✅ Global cart function
+                  className="flex-1 bg-[#D87D4A] hover:bg-[#FBAF85] text-white py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold rounded transition"
+                >
                   Add to Cart
                 </button>
               </div>

@@ -4,8 +4,19 @@ import { Link } from "react-router-dom";
 import { Footer } from "../../layouts/Footer";
 import Customer from "../../layouts/Customer";
 import Product from "../../layouts/Product";
+import { useCart } from "../../../context/CartContext";
 
 export default function SpeakerItem2() {
+  const { addToCart } = useCart();
+
+  // Product data
+  const product = {
+    id: 5,
+    name: "ZX7 SPEAKER",
+    price: 3500,
+    image: assets.secondSpeaker,
+  };
+
   return (
     <>
       <Navbar />
@@ -28,8 +39,8 @@ export default function SpeakerItem2() {
             {/* === IMAGE === */}
             <div className="bg-[#F1F1F1] rounded-xl flex justify-center items-center p-6 sm:p-8 md:p-10">
               <img
-                src={assets.secondSpeaker}
-                alt="ZX7 SPEAKER"
+                src={product.image}
+                alt={product.name}
                 className="w-[80%] sm:w-[70%] md:w-[60%] h-auto object-contain"
               />
             </div>
@@ -50,18 +61,12 @@ export default function SpeakerItem2() {
                 studio use.
               </p>
               <p className="text-lg sm:text-xl font-bold mb-6">$3,500</p>
-              <div className="flex flex-row items-center gap-2 w-full max-w-md ">
-                {/* Quantity Button */}
-                <button className="flex-1 bg-[#FAFAFA] hover:bg-[#F1F1F1] text-[#000000] py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold transition rounded">
-                  <div className="flex items-center justify-center gap-4">
-                    <span className="cursor-pointer select-none">+</span>
-                    <span>1</span>
-                    <span className="cursor-pointer select-none">-</span>
-                  </div>
-                </button>
-
-                {/* Add to Cart Button */}
-                <button className="flex-1 bg-[#D87D4A] hover:bg-[#FBAF85] text-white py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold transition rounded">
+              {/* === ADD TO CART BUTTON === */}
+              <div className="flex flex-row items-center gap-2 w-full max-w-md">
+                <button
+                  onClick={() => addToCart(product)} // ✅ Global cart function
+                  className="flex-1 bg-[#D87D4A] hover:bg-[#FBAF85] text-white py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold rounded transition"
+                >
                   Add to Cart
                 </button>
               </div>
@@ -137,20 +142,20 @@ export default function SpeakerItem2() {
           </section>
 
           {/* === PRODUCT GALLERY === */}
-          <section className="max-w-[1440px] w-full mx-auto mt-20 md:mt-24 ">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <section className="max-w-[1440px] w-full mx-auto mt-12 md:mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {/* LEFT COLUMN (2 stacked images) */}
-              <div className="grid grid-rows-2 gap-6 md:gap-8">
-                <div className="rounded-xl overflow-hidden h-[200px] sm:h-60 md:h-[280px] lg:h-80">
+              <div className="grid grid-rows-2 gap-4 md:gap-6">
+                <div className="rounded-xl overflow-hidden h-[150px] sm:h-40 md:h-60 lg:h-64">
                   <img
-                    src={assets.speaker_item_1a}
+                    src={assets.speaker_item_1b}
                     alt="Gallery 1"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="rounded-xl overflow-hidden h-[200px] sm:h-60 md:h-[280px] lg:h-80">
+                <div className="rounded-xl overflow-hidden h-[150px] sm:h-40 md:h-60 lg:h-64">
                   <img
-                    src={assets.speaker_item_2a}
+                    src={assets.speaker_item_2b}
                     alt="Gallery 2"
                     className="w-full h-full object-cover"
                   />
@@ -158,9 +163,9 @@ export default function SpeakerItem2() {
               </div>
 
               {/* RIGHT COLUMN (tall image) */}
-              <div className="rounded-xl overflow-hidden h-[450px] sm:h-[480px] md:h-[560px] lg:h-[670px]">
+              <div className="rounded-xl overflow-hidden h-[300px] sm:h-[350px] md:h-[400px] lg:h-[540px]">
                 <img
-                  src={assets.speaker_item_3a}
+                  src={assets.speaker_item_3b}
                   alt="Gallery 3"
                   className="w-full h-full object-cover"
                 />
@@ -178,8 +183,8 @@ export default function SpeakerItem2() {
               {[
                 // map over an array for DRY structure
                 {
-                  img: assets.secondSpeaker,
-                  name: "ZX7 SPEAKER",
+                  img: assets.firstSpeaker,
+                  name: "ZX9 SPEAKER",
                 },
                 {
                   img: assets.secondHeadphone,

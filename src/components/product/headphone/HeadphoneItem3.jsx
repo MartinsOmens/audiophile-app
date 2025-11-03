@@ -4,8 +4,19 @@ import { Link } from "react-router-dom";
 import { Footer } from "../../layouts/Footer";
 import Customer from "../../layouts/Customer";
 import Product from "../../layouts/Product";
+import { useCart } from "../../../context/CartContext";
 
 export default function HeadphoneItem3() {
+  const { addToCart } = useCart();
+
+  // Product data
+  const product = {
+    id: 3,
+    name: "XX59 Headphones",
+    price: 899,
+    image: assets.thirdHeadphone,
+  };
+
   return (
     <>
       <Navbar />
@@ -28,8 +39,8 @@ export default function HeadphoneItem3() {
             {/* === IMAGE === */}
             <div className="bg-[#F1F1F1] rounded-xl flex justify-center items-center p-6 sm:p-8 md:p-10">
               <img
-                src={assets.thirdHeadphone}
-                alt="XX99 Mark II Headphones"
+                src={product.image}
+                alt={product.name}
                 className="w-[80%] sm:w-[70%] md:w-[60%] h-auto object-contain"
               />
             </div>
@@ -40,27 +51,21 @@ export default function HeadphoneItem3() {
                 New Product
               </p>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase tracking-[1.43px] mb-6 leading-[1.1]">
-                XX99 Mark I <br /> Headphones
+                XX59 <br /> Headphones
               </h1>
               <p className="text-gray-600 text-sm sm:text-base leading-[25px] mb-6 max-w-lg">
-                As the gold standard for headphones, the classic XX99 Mark I
-                offers detailed and accurate audio reproduction for audiophiles,
-                mixing engineers, and music aficionados alike in studios and on
-                the go.
+                Enjoy your audio almost anywhere and customize it to your
+                specific tastes with the XX59 headphones. The stylish yet
+                durable versatile wireless headset is a brilliant companion at
+                home or on the move.
               </p>
               <p className="text-lg sm:text-xl font-bold mb-6">$899</p>
-              <div className="flex flex-row items-center gap-2 w-full max-w-md ">
-                {/* Quantity Button */}
-                <button className="flex-1 bg-[#FAFAFA] hover:bg-[#F1F1F1] text-[#000000] py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold transition rounded">
-                  <div className="flex items-center justify-center gap-4">
-                    <span className="cursor-pointer select-none">+</span>
-                    <span>1</span>
-                    <span className="cursor-pointer select-none">-</span>
-                  </div>
-                </button>
-
-                {/* Add to Cart Button */}
-                <button className="flex-1 bg-[#D87D4A] hover:bg-[#FBAF85] text-white py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold transition rounded">
+              {/* === ADD TO CART BUTTON === */}
+              <div className="flex flex-row items-center gap-2 w-full max-w-md">
+                <button
+                  onClick={() => addToCart(product)} // ✅ Global cart function
+                  className="flex-1 bg-[#D87D4A] hover:bg-[#FBAF85] text-white py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold rounded transition"
+                >
                   Add to Cart
                 </button>
               </div>
@@ -130,18 +135,18 @@ export default function HeadphoneItem3() {
           </section>
 
           {/* === PRODUCT GALLERY === */}
-          <section className="max-w-[1440px] w-full mx-auto mt-20 md:mt-24 ">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <section className="max-w-[1440px] w-full mx-auto mt-12 md:mt-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               {/* LEFT COLUMN (2 stacked images) */}
-              <div className="grid grid-rows-2 gap-6 md:gap-8">
-                <div className="rounded-xl overflow-hidden h-[200px] sm:h-60 md:h-[280px] lg:h-80">
+              <div className="grid grid-rows-2 gap-4 md:gap-6">
+                <div className="rounded-xl overflow-hidden h-[150px] sm:h-40 md:h-60 lg:h-64">
                   <img
                     src={assets.headphone_item_1c}
                     alt="Gallery 1"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="rounded-xl overflow-hidden h-[200px] sm:h-60 md:h-[280px] lg:h-80">
+                <div className="rounded-xl overflow-hidden h-[150px] sm:h-40 md:h-60 lg:h-64">
                   <img
                     src={assets.headphone_item_2c}
                     alt="Gallery 2"
@@ -151,7 +156,7 @@ export default function HeadphoneItem3() {
               </div>
 
               {/* RIGHT COLUMN (tall image) */}
-              <div className="rounded-xl overflow-hidden h-[450px] sm:h-[480px] md:h-[560px] lg:h-[670px]">
+              <div className="rounded-xl overflow-hidden h-[300px] sm:h-[350px] md:h-[400px] lg:h-[540px]">
                 <img
                   src={assets.headphone_item_3c}
                   alt="Gallery 3"

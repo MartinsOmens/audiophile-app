@@ -1,6 +1,9 @@
 // HOME PAGE IMAGES, ICONS AND SVGS
 import logo from "/images/home/logo.svg";
-import banner from "/images/home/banner.svg";
+import hero from "/images/home/hero.jpg";
+import heroTablet from "/images/home/hero-tablet.jpg";
+import heroMobile from "/images/home/hero-mobile.jpg";
+
 import heroHeadphone from "/images/home/hero-headphone.svg";
 import homeHeadphone from "/images/home/home-headphone.svg";
 import homeEarphone from "/images/home/home-earphone.svg";
@@ -46,14 +49,21 @@ import speaker_item_2a from "/images/product-detail/speaker-1/item-2.svg";
 import speaker_item_3a from "/images/product-detail/speaker-1/item-3.svg";
 
 //SPEAKERS ITEM 2
-import speaker_item_1b from "/images/product-detail/speaker-1/item-1.svg";
-import speaker_item_2b from "/images/product-detail/speaker-1/item-2.svg";
-import speaker_item_3b from "/images/product-detail/speaker-1/item-3.svg";
+import speaker_item_1b from "/images/product-detail/speaker-2/item-1.svg";
+import speaker_item_2b from "/images/product-detail/speaker-2/item-2.svg";
+import speaker_item_3b from "/images/product-detail/speaker-2/item-3.svg";
+
+//EARPHONES ITEM
+import earphone_item_1 from "/images/product-detail/earphone/item-1.svg";
+import earphone_item_2 from "/images/product-detail/earphone/item-2.svg";
+import earphone_item_3 from "/images/product-detail/earphone/item-3.svg";
 
 export const assets = {
   // HOME PAGE ASSETS
   logo,
-  banner,
+  hero,
+  heroTablet,
+  heroMobile,
   heroHeadphone,
   homeHeadphone,
   homeEarphone,
@@ -100,4 +110,9 @@ export const assets = {
   speaker_item_1b,
   speaker_item_2b,
   speaker_item_3b,
+
+  //EARPHONES ITEM
+  earphone_item_1,
+  earphone_item_2,
+  earphone_item_3,
 };

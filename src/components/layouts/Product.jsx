@@ -21,7 +21,7 @@ const Product = () => {
               HEADPHONES
             </h3>
             <Link
-              to="/earphones"
+              to="/headphones"
               className="flex items-center gap-2 text-[#000000] font-bold py-2 px-6 rounded transition-colors duration-300 hover:text-[#D87D4A]"
             >
               SHOP <ChevronRight size={16} className="text-[#D87D4A]" />
@@ -43,7 +43,7 @@ const Product = () => {
               SPEAKERS
             </h3>
             <Link
-              to="/earphones"
+              to="/speakers"
               className="flex items-center gap-2 text-[#000000] font-bold py-2 px-6 rounded transition-colors duration-300 hover:text-[#D87D4A]"
             >
               SHOP <ChevronRight size={16} className="text-[#D87D4A]" />

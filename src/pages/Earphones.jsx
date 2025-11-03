@@ -127,7 +127,7 @@ export default function Earphones() {
               sound even in noisy environments with its active noise
               cancellation feature.
             </p>
-            <Link to="/product">
+            <Link to="/product/earphone">
               <button className="bg-[#D87D4A] hover:bg-[#FBAF85] transition text-white px-8 py-4 uppercase text-sm tracking-wider font-semibold">
                 See Product
               </button>

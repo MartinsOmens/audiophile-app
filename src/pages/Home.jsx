@@ -11,33 +11,49 @@ const HeroSection = () => {
     <>
       {/* Navbar */}
       <Navbar />
-
-      {/* === HERO SECTION === */}
       <section className="relative text-white overflow-hidden flex items-center min-h-[90vh] sm:min-h-screen">
-        {/* Background image */}
+        {/* === BACKGROUND IMAGES === */}
+        {/* Mobile */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center sm:hidden w-full h-full"
           style={{
-            backgroundImage: `url(${assets.heroHeadphone})`,
+            backgroundImage: `url(${assets.heroMobile})`,
           }}
         />
 
-        {/* Overlay */}
+        {/* Tablet */}
+        <div
+          className="absolute inset-0 bg-cover bg-center hidden sm:block md:hidden w-full h-full"
+          style={{
+            backgroundImage: `url(${assets.heroTablet})`,
+          }}
+        />
+
+        {/* Desktop */}
+        <div
+          className="absolute inset-0 bg-cover bg-center hidden md:block w-full h-full"
+          style={{
+            backgroundImage: `url(${assets.hero})`,
+          }}
+        />
+
+        {/* === OVERLAY (for better contrast) === */}
         <div className="absolute inset-0 bg-black/40" />
 
-        {/* Content */}
-        <div className="relative max-w-[1440px] w-full mx-auto flex flex-col lg:flex-row items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 py-14 sm:py-16 md:py-20">
-          {/* Text */}
-          <div className="z-10 max-w-lg text-center lg:text-left px-2 sm:px-0">
-            <p className="uppercase tracking-[6px] sm:tracking-[8px] text-gray-400 text-xs sm:text-sm mb-4">
+        {/* === CONTENT === */}
+        <div className="relative z-10 max-w-[1200px] mx-auto w-full px-6 sm:px-10 lg:px-0 flex justify-start">
+          <div className="max-w-md text-left lg:ml-[8%]">
+            <p className="uppercase tracking-[10px] text-gray-400 mb-4">
               New Product
             </p>
 
-            <h1 className="font-sans font-bold text-[32px] sm:text-[44px] md:text-[56px] leading-[38px] sm:leading-[50px] md:leading-[60px] tracking-[2px] uppercase">
-              XX99 MARK II <br /> Headphones
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              XX99 Mark II
+              <br />
+              Headphones
             </h1>
 
-            <p className="mt-6 text-gray-300 text-sm sm:text-base md:text-[15px] leading-relaxed max-w-md mx-auto lg:mx-0">
+            <p className="text-gray-300 mb-8 max-w-sm leading-relaxed">
               Experience natural, lifelike audio and exceptional build quality
               made for the passionate music enthusiast.
             </p>

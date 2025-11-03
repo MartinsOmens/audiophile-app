@@ -4,8 +4,22 @@ import { Link } from "react-router-dom";
 import { Footer } from "../../layouts/Footer";
 import Customer from "../../layouts/Customer";
 import Product from "../../layouts/Product";
+import { useCart } from "../../../context/CartContext";
+
+
+
 
 export default function HeadphoneItem1() {
+  const { addToCart } = useCart(); // ✅ access global cart logic
+
+  // Product data
+  const product = {
+    id: 1,
+    name: "XX99 Mark II Headphones",
+    price: 2999,
+    image: assets.firstHeadphone,
+  };
+
   return (
     <>
       <Navbar />
@@ -28,8 +42,8 @@ export default function HeadphoneItem1() {
             {/* === IMAGE === */}
             <div className="bg-[#F1F1F1] rounded-xl flex justify-center items-center p-6 sm:p-8 md:p-10">
               <img
-                src={assets.firstHeadphone}
-                alt="XX99 Mark II Headphones"
+                src={product.image}
+                alt={product.name}
                 className="w-[80%] sm:w-[70%] md:w-[60%] h-auto object-contain"
               />
             </div>
@@ -48,18 +62,13 @@ export default function HeadphoneItem1() {
                 and precision of studio-quality sound.
               </p>
               <p className="text-lg sm:text-xl font-bold mb-6">$2,999</p>
-              <div className="flex flex-row items-center gap-2 w-full max-w-md ">
-                {/* Quantity Button */}
-                <button className="flex-1 bg-[#FAFAFA] hover:bg-[#F1F1F1] text-[#000000] py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold transition rounded">
-                  <div className="flex items-center justify-center gap-4">
-                    <span className="cursor-pointer select-none">+</span>
-                    <span>1</span>
-                    <span className="cursor-pointer select-none">-</span>
-                  </div>
-                </button>
 
-                {/* Add to Cart Button */}
-                <button className="flex-1 bg-[#D87D4A] hover:bg-[#FBAF85] text-white py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold transition rounded">
+              {/* === ADD TO CART BUTTON === */}
+              <div className="flex flex-row items-center gap-2 w-full max-w-md">
+                <button
+                  onClick={() => addToCart(product)} // ✅ Global cart function
+                  className="flex-1 bg-[#D87D4A] hover:bg-[#FBAF85] text-white py-3 sm:py-4 uppercase text-sm sm:text-base tracking-wider font-semibold rounded transition"
+                >
                   Add to Cart
                 </button>
               </div>
@@ -123,9 +132,9 @@ export default function HeadphoneItem1() {
           </section>
 
           {/* === PRODUCT GALLERY === */}
-          <section className="max-w-[1440px] w-full mx-auto mt-20 md:mt-24 ">
+          <section className="max-w-[1440px] w-full mx-auto mt-20 md:mt-24">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-              {/* LEFT COLUMN (2 stacked images) */}
+              {/* LEFT COLUMN */}
               <div className="grid grid-rows-2 gap-6 md:gap-8">
                 <div className="rounded-xl overflow-hidden h-[200px] sm:h-[240px] md:h-[280px] lg:h-[320px]">
                   <img
@@ -143,7 +152,7 @@ export default function HeadphoneItem1() {
                 </div>
               </div>
 
-              {/* RIGHT COLUMN (tall image) */}
+              {/* RIGHT COLUMN */}
               <div className="rounded-xl overflow-hidden h-[450px] sm:h-[480px] md:h-[560px] lg:h-[670px]">
                 <img
                   src={assets.headphone_item_3a}
@@ -154,7 +163,6 @@ export default function HeadphoneItem1() {
             </div>
           </section>
 
-        
           {/* === YOU MAY ALSO LIKE === */}
           <section className="max-w-[1440px] mx-auto w-full text-center mt-28">
             <h2 className="text-2xl sm:text-3xl font-bold uppercase tracking-wide mb-12">
@@ -163,19 +171,9 @@ export default function HeadphoneItem1() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
               {[
-                // map over an array for DRY structure
-                {
-                  img: assets.secondHeadphone,
-                  name: "XX99 Mark I",
-                },
-                {
-                  img: assets.thirdHeadphone,
-                  name: "XX59",
-                },
-                {
-                  img: assets.firstSpeaker,
-                  name: "ZX9 Speaker",
-                },
+                { img: assets.secondHeadphone, name: "XX99 Mark I" },
+                { img: assets.thirdHeadphone, name: "XX59" },
+                { img: assets.firstSpeaker, name: "ZX9 Speaker" },
               ].map((product, idx) => (
                 <div
                   key={idx}
