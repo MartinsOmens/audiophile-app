@@ -11,7 +11,6 @@ export default defineSchema({
     shipping: v.object({
       address: v.string(),
       city: v.string(),
-      state: v.string(),
       zip: v.string(),
       country: v.string(),
     }),
@@ -29,7 +28,7 @@ export default defineSchema({
       taxes: v.number(),
       grandTotal: v.number(),
     }),
-    status: v.string(), // e.g., "Pending", "Shipped"
-    createdAt: v.number(),
+    status: v.optional(v.string()), // ✅ optional so not required immediately
+    createdAt: v.optional(v.number()), // ✅ optional so Convex can auto-generate timestamps
   }),
 });

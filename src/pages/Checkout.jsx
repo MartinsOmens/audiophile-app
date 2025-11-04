@@ -2,14 +2,38 @@ import React, { useState } from "react";
 import Navbar from "../components/layouts/NavBar";
 import { Footer } from "../components/layouts/Footer";
 import { useCart } from "../context/CartContext";
-import CheckoutSuccessModal from "../components/checkout/CheckoutSuccessModal"; // ✅ import modal
+import CheckoutSuccessModal from "../components/checkout/CheckoutSuccessModal";
+import { useMutation, useAction } from "convex/react";
+import { api } from "../../convex/_generated/api";
 
 export default function Checkout() {
+  const { cartItems, clearCart } = useCart();
   const [paymentMethod, setPaymentMethod] = useState("e-Money");
-  const [isSuccessOpen, setIsSuccessOpen] = useState(false); // ✅ modal state
-  const { cartItems } = useCart();
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
-  // ✅ Calculate totals
+  const createOrder = useMutation(api.orders.create);
+  const sendOrderEmail = useAction(api.sendEmail.sendOrderEmail);
+
+  // ✅ Form state
+  const [customerInfo, setCustomerInfo] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
+
+  const [shippingInfo, setShippingInfo] = useState({
+    address: "",
+    zip: "",
+    city: "",
+    country: "",
+  });
+
+  const [eMoneyInfo, setEMoneyInfo] = useState({
+    number: "",
+    pin: "",
+  });
+
+  // ✅ Totals
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * (item.quantity || 1),
     0
@@ -17,6 +41,60 @@ export default function Checkout() {
   const shipping = cartItems.length > 0 ? 50 : 0;
   const vat = Math.round(total * 0.2);
   const grandTotal = total + shipping + vat;
+
+  // ✅ Handle form input
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    if (["name", "email", "phone"].includes(name)) {
+      setCustomerInfo((prev) => ({ ...prev, [name]: value }));
+    } else if (["address", "zip", "city", "country"].includes(name)) {
+      setShippingInfo((prev) => ({ ...prev, [name]: value }));
+    } else if (["number", "pin"].includes(name)) {
+      setEMoneyInfo((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+  // ✅ Place Order + Send Email
+  const handlePlaceOrder = async () => {
+    try {
+      if (!customerInfo.email || cartItems.length === 0) {
+        alert("Please complete your details and add items to cart.");
+        return;
+      }
+
+      const orderData = {
+        customer: customerInfo,
+        shipping: shippingInfo,
+        items: cartItems.map((item) => ({
+          id: String(item.id),
+          name: item.name,
+          price: item.price,
+          quantity: item.quantity || 1,
+        })),
+        totals: {
+          subtotal: total,
+          shipping,
+          taxes: vat,
+          grandTotal,
+        },
+      };
+
+      const createdOrder = await createOrder(orderData);
+      console.log("✅ Order created:", createdOrder);
+
+      const emailResponse = await sendOrderEmail({
+        to: customerInfo.email,
+        subject: "Your Audiophile Order Confirmation",
+        order: orderData,
+      });
+      console.log("✅ Email sent:", emailResponse);
+
+      // ✅ Open modal but don’t clear cart yet
+      setIsSuccessOpen(true);
+    } catch (error) {
+      console.error("❌ Failed to place order:", error);
+      alert("Something went wrong placing your order. Please try again.");
+    }
+  };
 
   return (
     <>
@@ -47,6 +125,9 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
+                      name="name"
+                      value={customerInfo.name}
+                      onChange={handleInputChange}
                       placeholder="Alexei Ward"
                       className="w-full border rounded-md px-4 py-3 text-sm focus:outline-[#D87D4A]"
                     />
@@ -57,6 +138,9 @@ export default function Checkout() {
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      value={customerInfo.email}
+                      onChange={handleInputChange}
                       placeholder="alexei@mail.com"
                       className="w-full border rounded-md px-4 py-3 text-sm focus:outline-[#D87D4A]"
                     />
@@ -67,6 +151,9 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
+                      name="phone"
+                      value={customerInfo.phone}
+                      onChange={handleInputChange}
                       placeholder="+1 202-555-0136"
                       className="w-full border rounded-md px-4 py-3 text-sm focus:outline-[#D87D4A]"
                     />
@@ -86,6 +173,9 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
+                      name="address"
+                      value={shippingInfo.address}
+                      onChange={handleInputChange}
                       placeholder="1137 Williams Avenue"
                       className="w-full border rounded-md px-4 py-3 text-sm focus:outline-[#D87D4A]"
                     />
@@ -96,6 +186,9 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
+                      name="zip"
+                      value={shippingInfo.zip}
+                      onChange={handleInputChange}
                       placeholder="10001"
                       className="w-full border rounded-md px-4 py-3 text-sm focus:outline-[#D87D4A]"
                     />
@@ -106,6 +199,9 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
+                      name="city"
+                      value={shippingInfo.city}
+                      onChange={handleInputChange}
                       placeholder="New York"
                       className="w-full border rounded-md px-4 py-3 text-sm focus:outline-[#D87D4A]"
                     />
@@ -116,6 +212,9 @@ export default function Checkout() {
                     </label>
                     <input
                       type="text"
+                      name="country"
+                      value={shippingInfo.country}
+                      onChange={handleInputChange}
                       placeholder="United States"
                       className="w-full border rounded-md px-4 py-3 text-sm focus:outline-[#D87D4A]"
                     />
@@ -164,6 +263,9 @@ export default function Checkout() {
                       </label>
                       <input
                         type="text"
+                        name="number"
+                        value={eMoneyInfo.number}
+                        onChange={handleInputChange}
                         placeholder="238521993"
                         className="w-full border rounded-md px-4 py-3 text-sm focus:outline-[#D87D4A]"
                       />
@@ -174,6 +276,9 @@ export default function Checkout() {
                       </label>
                       <input
                         type="password"
+                        name="pin"
+                        value={eMoneyInfo.pin}
+                        onChange={handleInputChange}
                         placeholder="6891"
                         className="w-full border rounded-md px-4 py-3 text-sm focus:outline-[#D87D4A]"
                       />
@@ -236,8 +341,9 @@ export default function Checkout() {
                       ${grandTotal.toLocaleString()}
                     </p>
                   </div>
+
                   <button
-                    onClick={() => setIsSuccessOpen(true)} // ✅ open modal
+                    onClick={handlePlaceOrder}
                     className="bg-[#D87D4A] hover:bg-[#FBAF85] text-white font-bold w-full py-4 rounded-md uppercase text-sm transition"
                   >
                     Continue & Pay
@@ -259,6 +365,3 @@ export default function Checkout() {
     </>
   );
 }
-
-
-
