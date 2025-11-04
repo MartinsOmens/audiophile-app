@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { assets } from "../assets/assets";
-import Navbar from "../components/layouts/NavBar";
+import Navbar from "../components/layouts/Navbar";
 import Product from "../components/layouts/Product";
 import { Footer } from "../components/layouts/Footer";
 import Customer from "../components/layouts/Customer";

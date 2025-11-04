@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "../components/layouts/NavBar";
+import Navbar from "../components/layouts/Navbar";
 import { Footer } from "../components/layouts/Footer";
 import { useCart } from "../context/CartContext";
 import CheckoutSuccessModal from "../components/checkout/CheckoutSuccessModal";

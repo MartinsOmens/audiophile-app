@@ -1,4 +1,4 @@
-import Navbar from "../../layouts/NavBar";
+import Navbar from "../../layouts/Navbar";
 import { assets } from "../../../assets/assets";
 import { Link } from "react-router-dom";
 import { Footer } from "../../layouts/Footer";
