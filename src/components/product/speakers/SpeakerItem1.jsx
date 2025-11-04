@@ -1,4 +1,4 @@
-import Navbar from "../../layouts/NavBar";
+import Navbar from "../../layouts/Navbar";
 import { assets } from "../../../assets/assets";
 import { Link } from "react-router-dom";
 import { Footer } from "../../layouts/Footer";
@@ -7,15 +7,15 @@ import Product from "../../layouts/Product";
 import { useCart } from "../../../context/CartContext";
 
 export default function SpeakerItem1() {
-   const { addToCart } = useCart();
-  
-    // Product data
-    const product = {
-      id: 4,
-      name: "ZX9 SPEAKER",
-      price: 4500,
-      image: assets.firstSpeaker,
-    };
+  const { addToCart } = useCart();
+
+  // Product data
+  const product = {
+    id: 4,
+    name: "ZX9 SPEAKER",
+    price: 4500,
+    image: assets.firstSpeaker,
+  };
   return (
     <>
       <Navbar />
