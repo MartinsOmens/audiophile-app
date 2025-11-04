@@ -1,6 +1,6 @@
 import { useCart } from "../../context/CartContext";
 import { Link, Links } from "react-router-dom";
-import Navbar from "../layouts/NavBar";
+import Navbar from "../layouts/Navbar";
 import { Footer } from "../layouts/Footer";
 
 export default function CartPage() {
